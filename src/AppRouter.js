@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import About from "./About";
 import Alerts from "./Alerts";
 import Home from "./Home";
@@ -24,44 +24,42 @@ export default function AppRouter() {
 
 	return (
 		<main>
-			<BrowserRouter>
-				<Navbar />
-				<Routes>
-					<Route
-						path="/"
-						element={
-							<Home
-								searching={searching}
-								setSearching={setSearching}
-								searchError={searchError}
-								setSearchError={setSearchError}
-								showTurnstile={showTurnstile}
-								setShowTurnstile={setShowTurnstile}
-								searchAnimationsBool={searchAnimationsBool}
-								setSearchAnimationsBool={setSearchAnimationsBool}
-							/>
-						}
-					/>
-					<Route path="/about" element={<About />} />
-					<Route path="/alerts" element={<Alerts />} />
-					<Route path="/subscribed" element={<Subscribed />} />
-					<Route path="/unsubscribed" element={<Unsubscribed />} />
-					<Route
-						path="/:mode/*"
-						element={
-							<Home
-								searching={searching}
-								setSearching={setSearching}
-								searchError={searchError}
-								setSearchError={setSearchError}
-								showTurnstile={showTurnstile}
-								setShowTurnstile={setShowTurnstile}
-							/>
-						}
-					/>
-					<Route path="*" element={<NotFound msg={"Invalid URL"} />} />
-				</Routes>
-			</BrowserRouter>
+			<Navbar />
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Home
+							searching={searching}
+							setSearching={setSearching}
+							searchError={searchError}
+							setSearchError={setSearchError}
+							showTurnstile={showTurnstile}
+							setShowTurnstile={setShowTurnstile}
+							searchAnimationsBool={searchAnimationsBool}
+							setSearchAnimationsBool={setSearchAnimationsBool}
+						/>
+					}
+				/>
+				<Route path="/about" element={<About />} />
+				<Route path="/alerts" element={<Alerts />} />
+				<Route path="/subscribed" element={<Subscribed />} />
+				<Route path="/unsubscribed" element={<Unsubscribed />} />
+				<Route
+					path="/:mode/*"
+					element={
+						<Home
+							searching={searching}
+							setSearching={setSearching}
+							searchError={searchError}
+							setSearchError={setSearchError}
+							showTurnstile={showTurnstile}
+							setShowTurnstile={setShowTurnstile}
+						/>
+					}
+				/>
+				<Route path="*" element={<NotFound msg={"Invalid URL"} />} />
+			</Routes>
 			{searching && !searchError && !showTurnstile && searchAnimationsBool && (
 				<img alt="" id="acela" src="/images/acela.svg" />
 			)}

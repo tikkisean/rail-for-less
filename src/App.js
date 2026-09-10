@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
 import Footer from "./Footer";
 import UpdateBar from "./UpdateBar";
@@ -29,11 +30,13 @@ export default function App() {
 		<ThemeProvider theme={darkTheme}>
 			<CssBaseline />
 			<LocalizationProvider dateAdapter={AdapterDayjs}>
-				<div className="fade-in">
-					<UpdateBar />
-					<AppRouter />
-					<Footer />
-				</div>
+				<BrowserRouter>
+					<div className="fade-in">
+						<UpdateBar />
+						<AppRouter />
+						<Footer />
+					</div>
+				</BrowserRouter>
 			</LocalizationProvider>
 		</ThemeProvider>
 	);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./UpdateBar.css";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
@@ -17,7 +18,7 @@ export default function UpdateBar() {
 		<div>
 			<div id="update-bar-container" style={{ display: open ? "" : "none" }}>
 				<span id="update-bar">
-					Amtrak Thruway services now supported!{" "}
+					New! Get emailed when your fare drops with Price Alerts.{" "}
 					<span onClick={() => setDialog(true)}>Read more</span>
 				</span>
 				<IconButton onClick={() => setOpen(false)} size="small">
@@ -34,9 +35,32 @@ export default function UpdateBar() {
 				</IconButton>
 				<DialogContent>
 					<DialogContentText>
+						<h2>Never Miss a Price Drop</h2>
+						Tired of refreshing fares hoping for a better deal? Now you don't
+						have to. Introducing{" "}
+						<Link to="/alerts" onClick={() => setDialog(false)}>
+							Price Alerts
+						</Link>
+						—tell us your route, travel dates, and the price you're after, and
+						we'll email you when a matching fare drops.
+						<br></br>
+						<br></br>
+						Set up an alert in seconds: pick your origin and destination, choose
+						an accommodation, and optionally set a target price. We'll keep an eye
+						on fares for you and check back regularly, so the next time prices
+						fall, you'll hear about it. Unsubscribe anytime with a single click.
+						Head to the{" "}
+						<Link to="/alerts" onClick={() => setDialog(false)}>
+							Alerts
+						</Link>{" "}
+						page to create yours today.
+						<br></br>
+						<br></br>
+						<hr></hr>
+						<br></br>
 						<h2>All Aboard Amtrak's Mardi Gras Service!</h2>
-						Get ready to ride the rails to the Gulf Coast! Amtrak has announced its new 
-						<a href="https://www.amtrak.com/Mardi-Gras-Service"
+						Get ready to ride the rails to the Gulf Coast! Amtrak has announced its new
+						<a href="https://www.amtrak.com/amtrak-mardi-gras-service-train"
 							rel="noopener noreferrer"
 							target="_blank">
 								Mardi Gras Service

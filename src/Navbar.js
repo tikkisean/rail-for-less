@@ -26,7 +26,7 @@ export default function Navbar() {
 				<Link to={useLocation().pathname === "/alerts" ? "/" : "/alerts"}>
 					{useLocation().pathname === "/alerts"
 						? "Home"
-						: `${!mobile ? "Fare " : ""}Alerts`}
+						: `${!mobile ? "Price " : ""}Alerts`}
 				</Link>
 				{!mobile && (
 					<a
